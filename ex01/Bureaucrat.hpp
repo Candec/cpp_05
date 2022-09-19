@@ -1,16 +1,19 @@
-#ifndef EX00_BUREAUCRAT_H
-#define EX00_BUREAUCRAT_H
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include <string>
-#include <iostream>
+# include <string>
+# include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 public:
 	Bureaucrat(const std::string& _name, int _grade);
 	Bureaucrat(const Bureaucrat &src);
 	virtual ~Bureaucrat();
+	Bureaucrat&	operator=(const Bureaucrat &src);
 
-	Bureaucrat&	operator=(const Bureaucrat &rh_instance);
 	Bureaucrat&	operator++();
 	Bureaucrat&	operator--();
 	Bureaucrat	operator++(int);
@@ -18,6 +21,7 @@ public:
 	std::string	getName() const;
 	int			getGrade() const;
 	Bureaucrat&	setGrade(int _grade);
+	Bureaucrat& signForm(Form& _form);
 
 
 	class GradeTooHighException : public std::exception {
@@ -35,6 +39,6 @@ private:
 	int					grade;
 };
 
-std::ostream&	operator<<(std::ostream& out, const Bureaucrat& rh_instance);
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat& src);
 
-#endif //EX00_BUREAUCRAT_H
+#endif

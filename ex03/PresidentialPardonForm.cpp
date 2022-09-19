@@ -1,8 +1,7 @@
-#include "PresidentialPardonForm.h"
+#include "PresidentialPardonForm.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 PresidentialPardonForm::PresidentialPardonForm() :
 	Form("PresidentialPardonForm", 25, 5),
 	target("UNNAMED") {
@@ -21,29 +20,22 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src
 	std::cout << "[PresidentialPardonForm] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 PresidentialPardonForm::~PresidentialPardonForm() {
 	std::cout << "[PresidentialPardonForm] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm &rh_instance) {
-	if (this != &rh_instance) {
-		this->setSignedStatus(rh_instance.getSignedStatus());
-		this->target = rh_instance.getTarget();
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm &src) {
+	if (this != &src) {
+		this->setSignedStatus(src.getSignedStatus());
+		this->target = src.getTarget();
 	}
 	return (*this);
 }
 
-//==============================================================================
-// 	METHODS OF THE PresidentialPardonForm CLASS.
-//==============================================================================
+/* ===================== */
+
+/* 	PresidentialPardonForm's methods */
+
 std::string	PresidentialPardonForm::getTarget() const {
 	return (this->target);
 }

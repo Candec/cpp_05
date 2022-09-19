@@ -1,7 +1,8 @@
-#ifndef EX02_SHRUBBERYCREATIONFORM_H
-#define EX02_SHRUBBERYCREATIONFORM_H
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#include "Form.h"
+#include "Form.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public Form {
 public:
@@ -9,7 +10,7 @@ public:
 	ShrubberyCreationForm(const ShrubberyCreationForm &src);
 	virtual ~ShrubberyCreationForm();
 
-	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm &rh_instance);
+	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm &src);
 	virtual void			execute(const Bureaucrat& executor) const;
 	std::string				getTarget() const;
 
@@ -18,4 +19,4 @@ private:
 	std::string	target;
 };
 
-#endif //EX02_SHRUBBERYCREATIONFORM_H
+#endif

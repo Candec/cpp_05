@@ -1,12 +1,11 @@
-#include <iostream>
-#include "Bureaucrat.h"
-#include "PresidentialPardonForm.h"
-#include "RobotomyRequestForm.h"
-#include "ShrubberyCreationForm.h"
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main() {
-	Bureaucrat	smith("Mr Smith", 4);
-	Bureaucrat	neo("NEO", 1);
+	Bureaucrat	a("Sr Bacalhau", 4);
+	Bureaucrat	b("Natas", 1);
 	ShrubberyCreationForm		s1("s1");
 	RobotomyRequestForm			r1("r1");
 	PresidentialPardonForm		p1("p1");
@@ -14,22 +13,25 @@ int main() {
 	RobotomyRequestForm			r2 = r1;
 	PresidentialPardonForm		p2 = p1;
 
-	std::cout << "=========================\n";
-	std::cout << smith << std::endl;
+	std::cout << "/*******************/\n";
+	std::cout << a << std::endl;
 	std::cout << s1 << std::endl;
-	std::cout << "=========================\n";
-	s1.beSigned(smith);
-	smith.signForm(s1);
+	std::cout << "/*******************/\n";
+
+	s1.beSigned(a);
+	a.signForm(s1);
 	std::cout << s1 << std::endl;
-	std::cout << "=========================\n";
-	smith.executeForm(s1);
-	std::cout << "=========================\n";
-	s1.beSigned(neo);
-	s1.execute(smith);
-	r1.beSigned(neo);
-	p1.beSigned(neo);
-	r1.execute(neo);
-	p1.execute(neo);
+	std::cout << "/*******************/\n";
+
+	a.executeForm(s1);
+	std::cout << "/*******************/\n";
+	
+	s1.beSigned(b);
+	s1.execute(a);
+	r1.beSigned(b);
+	p1.beSigned(b);
+	r1.execute(b);
+	p1.execute(b);
 	std::cout << s1 << std::endl;
 
 	return (0);

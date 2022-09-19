@@ -1,8 +1,7 @@
-#include "Form.h"
+#include "Form.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 Form::Form() : name("UNNAMED"), signed_status(false), grade_to_sign(-2), grade_to_execute(-1) {
 	std::cout << "[Form] Default constructor.\n";
 }
@@ -33,23 +32,17 @@ Form::Form(const Form &src) :
 	std::cout << "[Form] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 Form::~Form() {
 	std::cout << "[Form] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-Form &Form::operator=(const Form &rh_instance) {
-	if (this != &rh_instance)
-		this->signed_status = rh_instance.signed_status;
+Form &Form::operator=(const Form &src) {
+	if (this != &src)
+		this->signed_status = src.signed_status;
 	return (*this);
 }
+
+/* ===================== */
 
 std::ostream&	operator<<(std::ostream& os, const Form& obj) {
 	os << obj.getName()
@@ -62,9 +55,8 @@ std::ostream&	operator<<(std::ostream& os, const Form& obj) {
 	return (os);
 }
 
-//==============================================================================
-// 	METHODS OF THE Form CLASS.
-//==============================================================================
+/* 	Form's methods */
+
 const std::string	Form::getName() const {
 	return (this->name);
 }

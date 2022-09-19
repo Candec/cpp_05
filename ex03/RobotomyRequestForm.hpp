@@ -1,7 +1,7 @@
-#ifndef EX02_ROBOTOMYREQUESTFORM_H
-#define EX02_ROBOTOMYREQUESTFORM_H
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.h"
+#include "Form.hpp"
 
 class RobotomyRequestForm : public Form {
 public:
@@ -9,7 +9,7 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm &src);
 	virtual ~RobotomyRequestForm();
 
-	RobotomyRequestForm&	operator=(const RobotomyRequestForm &rh_instance);
+	RobotomyRequestForm&	operator=(const RobotomyRequestForm &src);
 	virtual void			execute(const Bureaucrat& executor) const;
 	std::string				getTarget() const;
 
@@ -18,4 +18,4 @@ private:
 	std::string	target;
 };
 
-#endif //EX02_ROBOTOMYREQUESTFORM_H
+#endif

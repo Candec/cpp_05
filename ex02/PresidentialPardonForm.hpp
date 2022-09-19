@@ -1,7 +1,7 @@
-#ifndef EX02_PRESIDENTIALPARDONFORM_H
-#define EX02_PRESIDENTIALPARDONFORM_H
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include "Form.h"
+#include "Form.hpp"
 
 class PresidentialPardonForm : public Form {
 public:
@@ -9,7 +9,7 @@ public:
 	PresidentialPardonForm(const PresidentialPardonForm &src);
 	virtual ~PresidentialPardonForm();
 
-	PresidentialPardonForm&	operator=(const PresidentialPardonForm &rh_instance);
+	PresidentialPardonForm&	operator=(const PresidentialPardonForm &src);
 	virtual void			execute(const Bureaucrat& executor) const;
 	std::string				getTarget() const;
 
@@ -18,4 +18,4 @@ private:
 	std::string	target;
 };
 
-#endif //EX02_PRESIDENTIALPARDONFORM_H
+#endif

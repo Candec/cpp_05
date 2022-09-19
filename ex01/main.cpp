@@ -1,26 +1,28 @@
-#include <iostream>
-#include "Bureaucrat.h"
-#include "Form.h"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-	Bureaucrat	smith("Mr Smith", 4);
-	Bureaucrat	smith2 = smith;
-	Bureaucrat	neo("NEO", 1);
+	Bureaucrat	a("Sr. Bacalhau", 4);
+	Bureaucrat	b = a;
+	Bureaucrat	natas("Natas", 1);
 	Form		f1("f1", 3, 2);
 	Form		f2 = f1;
 
-	std::cout << smith << std::endl;
+	std::cout << a << std::endl;
 	std::cout << f1 << std::endl;
-	std::cout << "=========================\n";
-	f1.beSigned(smith);
-	smith.signForm(f1);
+	std::cout << "/*******************/\n";
+
+	f1.beSigned(a);
+	a.signForm(f1);
 	std::cout << f1 << std::endl;
-	std::cout << "=========================\n";
-	f1.beSigned(smith2);
-	smith2.signForm(f1);
+	std::cout << "/*******************/\n";
+
+	f1.beSigned(b);
+	b.signForm(f1);
 	std::cout << f1 << std::endl;
-	std::cout << "=========================\n";
-	f1.beSigned(neo);
+	std::cout << "/*******************/\n";
+
+	f1.beSigned(natas);
 	std::cout << f1 << std::endl;
 
 	return (0);

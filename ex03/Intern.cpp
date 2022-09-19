@@ -1,11 +1,10 @@
-#include "Intern.h"
-#include "PresidentialPardonForm.h"
-#include "RobotomyRequestForm.h"
-#include "ShrubberyCreationForm.h"
+#include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 Intern::Intern() {
 	this->ptr_f[0] = &Intern::makeP;
 	this->ptr_f[1] = &Intern::makeR;
@@ -18,30 +17,21 @@ Intern::Intern(const Intern &src) {
 	std::cout << "[Intern] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 Intern::~Intern() {
 	std::cout << "[Intern] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-Intern&	Intern::operator=(const Intern &rh_instance) {
-	if (this != &rh_instance) {
-		this->ptr_f[0] = rh_instance.ptr_f[0];
-		this->ptr_f[1] = rh_instance.ptr_f[1];
-		this->ptr_f[2] = rh_instance.ptr_f[2];
+Intern&	Intern::operator=(const Intern &src) {
+	if (this != &src) {
+		this->ptr_f[0] = src.ptr_f[0];
+		this->ptr_f[1] = src.ptr_f[1];
+		this->ptr_f[2] = src.ptr_f[2];
 	}
 	return (*this);
 }
 
-//==============================================================================
-// 	METHODS OF THE Intern CLASS.
-//==============================================================================
+/* 	Intern's methods */
+
 Form*	Intern::makeForm(const std::string &_name, const std::string &_target) {
 	for (int i = 0; i < NB_FORMS; i++) {
 		Form* temp = (this->*(ptr_f[i]))(_target);

@@ -1,9 +1,7 @@
-#include <fstream>
-#include "ShrubberyCreationForm.h"
+#include "ShrubberyCreationForm.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 ShrubberyCreationForm::ShrubberyCreationForm() :
 	Form("ShrubberyCreationForm", 145, 137),
 	target("UNNAMED") {
@@ -22,36 +20,25 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) :
 	std::cout << "[ShrubberyCreationForm] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << "[ShrubberyCreationForm] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rh_instance) {
-	if (this != &rh_instance) {
-		this->setSignedStatus(rh_instance.getSignedStatus());
-		this->target = rh_instance.getTarget();
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src) {
+	if (this != &src) {
+		this->setSignedStatus(src.getSignedStatus());
+		this->target = src.getTarget();
 	}
 	return (*this);
 }
 
-//==============================================================================
-// 	METHODS OF THE ShrubberyCreationForm CLASS.
-//==============================================================================
+/* ===================== */
+/* 	ShrubberyCreationForm's methods */
+
 std::string ShrubberyCreationForm::getTarget() const {
 	return (this->target);
 }
 
-/*
- * Note that error messages should print to std::cerr and not std::cout.
- */
 void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	try {
 		if (this->getSignedStatus() && executor.getGrade() <= this->getGradeToExecute()) {
@@ -61,18 +48,14 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 			if (!ofs.is_open())
 				std::cerr << "Could not open file.\n";
 			else {
-				ofs << "         v .   ._, |_  .,\n"
-					   "    `-._\\/  .  \\ /    |/_\n"
-					   "    \\  _\\, y | \\//\n"
-					   "         _\\_.___\\, \\/ -.\\||\n"
-					   "            `7-,--.`._||  / / ,\n"
-					   "            /'     `-. `./ / |/_.'\n"
-					   "                     |    |//\n"
-					   "                     |_    /\n"
-					   "                     |-   |\n"
-					   "                     |   =|\n"
-					   "                     |    |\n"
-					   "--------------------/ ,  . \\--------._\n";
+				ofs <<  "         #o#\n"
+       					"		####o#\n"
+						"      #o# \\#|_#,###\n"
+						"     ###\\ |/   #o####  #\n"
+						"      # {}{      #######\n"
+						"	      }{{\n"
+						"_______,'  `__________\n"
+						"\\____________________/";
 				ofs.close();
 			}
 		}

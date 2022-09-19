@@ -1,8 +1,7 @@
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 Bureaucrat::Bureaucrat() {
 	std::cout << "[Bureaucrat] Default constructor.\n";
 }
@@ -28,23 +27,17 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) :
 	std::cout << "[Bureaucrat] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 Bureaucrat::~Bureaucrat() {
 	std::cout << "[Bureaucrat] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &rh_instance) {
-	if (this != &rh_instance)
-		this->grade = rh_instance.getGrade();
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &src) {
+	if (this != &src)
+		this->grade = src.getGrade();
 	return (*this);
 }
+
+/* ===================== */
 
 Bureaucrat&	Bureaucrat::operator++() {
 	try {
@@ -98,17 +91,12 @@ Bureaucrat	Bureaucrat::operator--(int) {
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream& out, const Bureaucrat& rh_instance) {
-	out << rh_instance.getName()
-		<< ", bureaucrat grade "
-		<< rh_instance.getGrade()
-		<< ".";
+std::ostream&	operator<<(std::ostream& out, const Bureaucrat& src) {
+	out << src.getName() << ", bureaucrat grade " << src.getGrade() << ".";
 	return out;
 }
 
-//==============================================================================
-// 	METHODS OF THE Bureaucrat CLASS.
-//==============================================================================
+/* 	Bureaucrat's methods */
 
 std::string	Bureaucrat::getName() const {
 	return (this->name);

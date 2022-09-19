@@ -1,9 +1,8 @@
 #include <cstdlib>
-#include "RobotomyRequestForm.h"
+#include "RobotomyRequestForm.hpp"
 
-//==============================================================================
-// 	CONSTRUCTORS
-//==============================================================================
+/* # Canonical declaration */
+
 RobotomyRequestForm::RobotomyRequestForm() :
 	Form("RobotomyRequestForm", 72, 45),
 	target("UNNAMED") {
@@ -22,29 +21,22 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) :
 	std::cout << "[RobotomyRequestForm] Copy constructor.\n";
 }
 
-//==============================================================================
-// 	DESTRUCTORS
-//==============================================================================
-
 RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "[RobotomyRequestForm] Destructor.\n";
 }
 
-//==============================================================================
-// 	OPERATOR OVERLOADS
-//==============================================================================
-
-RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &rh_instance) {
-	if (this != &rh_instance) {
-		this->setSignedStatus(rh_instance.getSignedStatus());
-		this->target = rh_instance.getTarget();
+RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
+	if (this != &src) {
+		this->setSignedStatus(src.getSignedStatus());
+		this->target = src.getTarget();
 	}
 	return (*this);
 }
 
-//==============================================================================
-// 	METHODS OF THE RobotomyRequestForm CLASS.
-//==============================================================================
+/* ===================== */
+
+/* 	RobotomyRequestForm's methods */
+
 std::string RobotomyRequestForm::getTarget() const {
 	return (this->target);
 }

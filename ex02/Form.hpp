@@ -1,9 +1,9 @@
-#ifndef EX01_FORM_H
-#define EX01_FORM_H
+#ifndef FORM_HPP
+#define FORM_HPP
 
 #include <string>
 #include <iostream>
-#include "Bureaucrat.h"
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -12,8 +12,8 @@ public:
 	Form(const std::string& _name, const int to_sign, const int to_exec);
 	Form(const Form &src);
 	virtual ~Form();
+	Form&				operator=(const Form &src);
 
-	Form&				operator=(const Form &rh_instance);
 	const std::string	getName() const;
 	bool				getSignedStatus() const;
 	int					getGradeToSign() const;
@@ -43,4 +43,4 @@ private:
 
 std::ostream&	operator<<(std::ostream& os, const Form& obj);
 
-#endif //EX01_FORM_H
+#endif
