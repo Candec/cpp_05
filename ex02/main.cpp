@@ -4,8 +4,8 @@
 #include "ShrubberyCreationForm.hpp"
 
 int main() {
-	Bureaucrat	a("Sr Bacalhau", 4);
-	Bureaucrat	b("Natas", 1);
+	Bureaucrat	a("Hermes Conrad", 4);
+	Bureaucrat	b("Professor Hubert J. Farnsworth", 1);
 	ShrubberyCreationForm		s1("s1");
 	RobotomyRequestForm			r1("r1");
 	PresidentialPardonForm		p1("p1");

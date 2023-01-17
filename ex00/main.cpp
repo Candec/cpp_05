@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-	Bureaucrat a("Sr. Bacalhau", 42);
+	Bureaucrat a("Hermes Conrad", 42);
 	Bureaucrat b = a;
 	Bureaucrat c(a);
 
